@@ -1,4 +1,4 @@
-package com.example.boot.entity;
+package com.example.boot.jar.quartz;
 
 public class Job {
 

@@ -1,6 +1,6 @@
 package com.example.boot.jar.quartz.config;
 
-import com.example.boot.entity.Job;
+import com.example.boot.jar.quartz.Job;
 import com.example.boot.jar.quartz.MyJob;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;

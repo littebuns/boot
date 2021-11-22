@@ -1,4 +1,4 @@
-package com.example.boot.bean;
+package com.example.boot.jar.quartz.config;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeansException;
