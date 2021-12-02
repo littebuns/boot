@@ -1,4 +1,4 @@
-package com.xxb.mybatisDemon;
+package com.xxb.mybatisDemon.entity;
 
 import lombok.Data;
 

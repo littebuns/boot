@@ -1,6 +1,6 @@
 package com.xxb.mybatisDemon.config;
 
-import com.xxb.mybatisDemon.User;
+import com.xxb.mybatisDemon.entity.User;
 import com.xxb.mybatisDemon.mapper.UserMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

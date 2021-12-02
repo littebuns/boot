@@ -1,8 +1,6 @@
 package com.xxb.mybatisDemon.mapper;
 
-import com.xxb.mybatisDemon.User;
-
-import java.util.List;
+import com.xxb.mybatisDemon.entity.User;
 
 public interface UserMapper {
 
