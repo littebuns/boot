@@ -20,11 +20,7 @@ public class BlankListValidator implements ConstraintValidator<BlankList, String
             add("b");
             add("c");
         }};
-        if (list.contains(s)){
-            return false;
-        }else{
-            return true;
-        }
-
+        return !list.contains(s);
     }
+
 }

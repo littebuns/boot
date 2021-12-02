@@ -1,0 +1,23 @@
+server:
+  port: 8001
+
+spring:
+  datasource:
+    url: jdbc:mysql://81.68.241.238:3306/mysql
+    username: root
+    password: 123456
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    host: www.xxb.world
+    password:
+    database: 0
+
+
+  #    slave:
+#      url: jdbc:mysql://81.68.241.238:3306/xxb
+#      username: root
+#      password: 123456
+
+  application:
+    name: ${cimc-service-prefix:}test
