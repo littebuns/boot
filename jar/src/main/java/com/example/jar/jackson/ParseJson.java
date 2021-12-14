@@ -1,4 +1,4 @@
-package com.example.boot.jar.jackson;
+package com.example.jar.jackson;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;

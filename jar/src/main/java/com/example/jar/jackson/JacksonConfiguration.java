@@ -1,4 +1,4 @@
-package com.example.boot.jar.jackson;
+package com.example.jar.jackson;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;

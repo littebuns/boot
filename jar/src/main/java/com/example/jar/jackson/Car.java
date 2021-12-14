@@ -1,4 +1,4 @@
-package com.example.boot.jar.jackson;
+package com.example.jar.jackson;
 
 import lombok.Data;
 import org.springframework.validation.annotation.Validated;
