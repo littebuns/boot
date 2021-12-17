@@ -9,3 +9,9 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver
 
+mybatis:
+  mapper-locations: classpath:mapper./*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.xxb.mybatisDemon.entity
+

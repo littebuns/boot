@@ -14,7 +14,6 @@ class MybatisConfigTest {
     @Autowired
     private SqlSessionFactory sqlSessionFactory;
 
-
     @Test
     public void t1(){
         try (SqlSession session = sqlSessionFactory.openSession()){

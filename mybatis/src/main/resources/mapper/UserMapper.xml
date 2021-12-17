@@ -12,6 +12,10 @@
         select <include refid="Base_Column_List"></include> from user where id = #{id}
     </select>
 
+    <select id="selectUserToMap" resultType="map">
+        select  * from user
+    </select>
+
     <insert id="insertUser">
         insert into user (name)
         values (#{name})
