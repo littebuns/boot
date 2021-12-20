@@ -10,6 +10,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
+/**
+ * 将String 解析为json对象或javabean
+ */
 @Slf4j
 public class ParseJson {
 
@@ -40,14 +43,19 @@ public class ParseJson {
         log.info(String.valueOf(map));
     }
 
+    /**
+     * String 转 jsonNode
+     * @throws JsonProcessingException
+     */
     @Test
     public void t3() throws JsonProcessingException {
         JsonNode jsonNode = mapper.readValue(str, JsonNode.class);
-//        JsonNode jsonNode = mapper.readTree(str);
         JsonNode name = jsonNode.get("name");
         JsonNode id = jsonNode.get("id");
         log.info(String.valueOf(id.asInt()));
         log.info(name.asText());
     }
+
+
 
 }
