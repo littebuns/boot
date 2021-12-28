@@ -8,7 +8,6 @@
         <module>mybatisplus</module>
         <module>jar</module>
         <module>QLExpress</module>
-        <module>xxlJob</module>
     </modules>
 
     <parent>
