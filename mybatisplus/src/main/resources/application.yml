@@ -4,8 +4,20 @@ spring:
     username: root
     password: 123456
     type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      jdbc-url: jdbc:mysql://81.68.241.238:3306/mybatis
+      username: root
+      password: 123456
+  edi:
+    datasource:
+      jdbcUrl: jdbc:mysql://81.68.241.238:3306/xxl_job
+      username: root
+      password: 123456
+      type: com.zaxxer.hikari.HikariDataSource
+      driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis-plus:
+  mapper-locations: classpath:mapper/*Mapper.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
