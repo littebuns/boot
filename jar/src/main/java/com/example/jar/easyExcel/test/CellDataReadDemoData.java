@@ -1,4 +1,4 @@
-package com.example.jar.easyExecl.test;
+package com.example.jar.easyExcel.test;
 
 import com.alibaba.excel.metadata.data.CellData;
 import lombok.EqualsAndHashCode;

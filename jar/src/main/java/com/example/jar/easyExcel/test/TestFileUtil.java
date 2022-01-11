@@ -1,4 +1,4 @@
-package com.example.jar.easyExecl.test;
+package com.example.jar.easyExcel.test;
 
 import java.io.File;
 import java.io.InputStream;

@@ -1,4 +1,4 @@
-package com.example.jar.easyExecl.test;
+package com.example.jar.easyExcel.test;
 
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;

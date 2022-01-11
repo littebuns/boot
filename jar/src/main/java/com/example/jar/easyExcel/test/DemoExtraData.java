@@ -1,4 +1,4 @@
-package com.example.jar.easyExecl.test;
+package com.example.jar.easyExcel.test;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

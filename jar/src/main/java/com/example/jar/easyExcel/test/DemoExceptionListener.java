@@ -1,4 +1,5 @@
-package com.example.jar.easyExecl.test;
+package com.example.jar.easyExcel.test;
+
 
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.exception.ExcelDataConvertException;
@@ -12,16 +13,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 读取头
+ * 读取转换异常
  *
  * @author Jiaju Zhuang
  */
 @Slf4j
-public class DemoHeadDataListener implements ReadListener<DemoData> {
+public class DemoExceptionListener implements ReadListener<ExceptionDemoData> {
     /**
      * 每隔5条存储数据库，实际使用中可以100条，然后清理list ，方便内存回收
      */
     private static final int BATCH_COUNT = 5;
+
     private List<ExceptionDemoData> cachedDataList = ListUtils.newArrayListWithExpectedSize(BATCH_COUNT);
 
     /**
@@ -34,6 +36,8 @@ public class DemoHeadDataListener implements ReadListener<DemoData> {
     @Override
     public void onException(Exception exception, AnalysisContext context) {
         log.error("解析失败，但是继续解析下一行:{}", exception.getMessage());
+        // 如果是某一个单元格的转换异常 能获取到具体行号
+        // 如果要获取头的信息 配合invokeHeadMap使用
         if (exception instanceof ExcelDataConvertException) {
             ExcelDataConvertException excelDataConvertException = (ExcelDataConvertException)exception;
             log.error("第{}行，第{}列解析异常，数据为:{}", excelDataConvertException.getRowIndex(),
@@ -50,13 +54,10 @@ public class DemoHeadDataListener implements ReadListener<DemoData> {
     @Override
     public void invokeHead(Map<Integer, ReadCellData<?>> headMap, AnalysisContext context) {
         log.info("解析到一条头数据:{}", JSON.toJSONString(headMap));
-        // 如果想转成成 Map<Integer,String>
-        // 方案1： 不要implements ReadListener 而是 extends AnalysisEventListener
-        // 方案2： 调用 ConverterUtils.convertToStringMap(headMap, context) 自动会转换
     }
 
     @Override
-    public void invoke(DemoData data, AnalysisContext context) {
+    public void invoke(ExceptionDemoData data, AnalysisContext context) {
         log.info("解析到一条数据:{}", JSON.toJSONString(data));
         if (cachedDataList.size() >= BATCH_COUNT) {
             saveData();
