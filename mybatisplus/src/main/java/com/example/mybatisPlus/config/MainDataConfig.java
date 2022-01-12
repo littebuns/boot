@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@MapperScan(basePackages = "com.example.mybatisPlus.mapper.main", sqlSessionTemplateRef = "sqlSessionTemplate")
+@MapperScan(basePackages = "com.example.mybatisPlus.mapper", sqlSessionTemplateRef = "sqlSessionTemplate")
 public class MainDataConfig {
 
     static final String MAIN_LOCATION = "classpath*:mapper/*.xml";

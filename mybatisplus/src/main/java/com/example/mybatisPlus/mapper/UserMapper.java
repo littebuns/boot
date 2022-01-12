@@ -1,4 +1,4 @@
-package com.example.mybatisPlus.mapper.main;
+package com.example.mybatisPlus.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.mybatisPlus.User;
