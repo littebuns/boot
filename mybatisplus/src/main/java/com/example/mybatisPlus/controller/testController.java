@@ -20,7 +20,7 @@ public class testController {
     @GetMapping("/test")
     public void test(){
 //        userMapper.selectList(null);
-        List<User> users = testMapper.selectList(null);
+        List<User> users = userMapper.selectList(null);
         System.out.println(users);
         //        List<User> users = testMapper.selectList(null);
 

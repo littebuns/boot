@@ -1,7 +1,9 @@
 package com.example.mybatisPlus.config;
 
 
+import com.baomidou.mybatisplus.core.MybatisConfiguration;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
+import org.apache.ibatis.logging.stdout.StdOutImpl;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -21,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 
 @Configuration
 @MapperScan(basePackages = "com.example.mybatisPlus.mapper.edi", sqlSessionTemplateRef = "ediSqlSessionTemplate")
@@ -39,6 +42,9 @@ public class EdiDataConfig {
         MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
         factoryBean.setDataSource(dataSource);
         factoryBean.setMapperLocations(resolveMapperLocations());
+        MybatisConfiguration configuration = new MybatisConfiguration();
+        configuration.setLogImpl(StdOutImpl.class);
+        factoryBean.setConfiguration(configuration);
         return factoryBean.getObject();
     }
 

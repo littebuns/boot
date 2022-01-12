@@ -1,6 +1,8 @@
 package com.example.mybatisPlus.config;
 
+import com.baomidou.mybatisplus.core.MybatisConfiguration;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
+import org.apache.ibatis.logging.stdout.StdOutImpl;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -15,6 +17,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
+import java.util.Properties;
 
 @Configuration
 @MapperScan(basePackages = "com.example.mybatisPlus.mapper.main", sqlSessionTemplateRef = "sqlSessionTemplate")
@@ -35,7 +38,9 @@ public class MainDataConfig {
         MybatisSqlSessionFactoryBean factoryBean = new MybatisSqlSessionFactoryBean();
         factoryBean.setDataSource(dataSource);
         factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(MAIN_LOCATION));
-
+        MybatisConfiguration configuration = new MybatisConfiguration();
+        configuration.setLogImpl(StdOutImpl.class);
+        factoryBean.setConfiguration(configuration);
         return factoryBean.getObject();
     }
 
