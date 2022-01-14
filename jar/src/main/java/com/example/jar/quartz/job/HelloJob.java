@@ -1,16 +1,14 @@
-package com.example.boot.jar.quartz;
+package com.example.jar.quartz.job;
 
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
-import java.util.Date;
-
-public class MyJob implements Job {
+public class HelloJob implements Job {
 
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        System.out.println(new Date() + "--------------");
+        System.out.println("Hello World");
     }
 
 }
