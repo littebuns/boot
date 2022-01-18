@@ -9,6 +9,11 @@ import java.io.InputStream;
 
 public class SqlSessionFactoryConfig {
 
+    /**
+     * native 方式
+     * 通过 mybatis-config.xml 获取到 sqlSession
+     * @return sqlSession
+     */
     public static SqlSession getSqlSession(){
         String resource = "mybatis-config.xml";
         InputStream inputStream = null;
