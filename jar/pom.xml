@@ -51,6 +51,12 @@
             <version>8.0.25</version>
         </dependency>
 
+        <!--spring boot集成quartz-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-quartz</artifactId>
+        </dependency>
+
 
     </dependencies>
 
