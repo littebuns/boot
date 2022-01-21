@@ -1,13 +1,15 @@
 spring:
   datasource:
-    hikari:
-      jdbc-url: jdbc:mysql://81.68.241.238:3306/xxb
-      username: root
-      password: 123456
-    url: jdbc:mysql://81.68.241.238:3306/mybatis
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://81.68.241.238:3306/xxb
     username: root
     password: 123456
-    type: com.zaxxer.hikari.HikariDataSource
+  quartz:
+    job-store-type: jdbc
+
+
+
+
 
 mybatis-plus:
   mapper-locations: classpath:mapper/*Mapper.xml

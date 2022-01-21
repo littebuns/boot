@@ -28,12 +28,12 @@ public class HelloJobController {
         Scheduler scheduler = schedulerFactoryBean.getScheduler();
         JobDetail detail = JobBuilder.newJob(HelloJob.class).withIdentity(no).build();
         Trigger simpleTrigger = TriggerBuilder.newTrigger()
-                .startAt(DateBuilder.futureDate(10, DateBuilder.IntervalUnit.SECOND))
+                .startAt(DateBuilder.futureDate(30, DateBuilder.IntervalUnit.SECOND))
                 .build();
         try {
             scheduler.deleteJob(new JobKey(no));
             scheduler.scheduleJob(detail, simpleTrigger);
-            log.info("注册一次任务,触发时间为{}", DateBuilder.futureDate(10, DateBuilder.IntervalUnit.SECOND));
+            log.info("注册一次任务,触发时间为{}", DateBuilder.futureDate(30, DateBuilder.IntervalUnit.SECOND));
         } catch (SchedulerException e) {
             e.printStackTrace();
         }
