@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
 import java.util.Map;
 
 @Slf4j
@@ -27,6 +28,15 @@ class UserMapperTest {
         userMapper.addUser(xxb);
         log.info("数据插入后的主键为{}", xxb.getId());
         session.close();
+    }
+
+    /**
+     * 测试 ${} 取值
+     */
+    @Test
+    void selectUserByYear(){
+        List<User> users = userMapper.selectUserByYear("2021");
+        System.out.println(users);
     }
 
 }

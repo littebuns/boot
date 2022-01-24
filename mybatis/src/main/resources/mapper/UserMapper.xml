@@ -24,6 +24,11 @@
         select * from user where id = #{id}
     </select>
 
+
+    <select id="selectUserByYear" resultType="user">
+        select * from #{year}_user
+    </select>
+
     <insert id="addUser" parameterType="user" useGeneratedKeys="true" keyProperty="id" >
         insert into user (name,age,email,user_phone)
         values (#{name}, #{age}, #{email}, #{userPhone})
