@@ -26,5 +26,22 @@ public class SqlSessionFactoryConfig {
         return new SqlSessionFactoryBuilder().build(inputStream).openSession(true);
     }
 
+    /**
+     * 根据环境变量获取session
+     * @param environment
+     * @return
+     */
+    public static SqlSession getSqlSession(String environment){
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = null;
+        try {
+            inputStream = Resources.getResourceAsStream(resource);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //设置自动提交
+        return new SqlSessionFactoryBuilder().build(inputStream, environment).openSession(true);
+    }
+
 
 }
