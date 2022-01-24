@@ -13,7 +13,15 @@ import org.apache.ibatis.type.Alias;
 @ToString
 public class User {
 
+    public User(int age, String name, String email, String userPhone) {
+        this.age = age;
+        this.name = name;
+        this.email = email;
+        this.userPhone = userPhone;
+    }
+
     private int id;
+    private int age;
     private String name;
     private String email;
     private String userPhone;

@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 import java.util.Map;
 
-@Mapper
 public interface UserMapper {
 
     /**
@@ -21,8 +20,11 @@ public interface UserMapper {
      */
     User selectUserByResultMap(int id);
 
-    void insertUser(String name);
-
+    /**
+     * 添加用户
+     * @param user
+     * @return
+     */
     int addUser(User user);
 
     /**
