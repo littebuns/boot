@@ -14,6 +14,11 @@ public interface UserMapper {
      */
     User selectUser(int id);
 
+
+    List<User> selectByAgeAndName(User user);
+
+    List<User> selectByAgeAndName1(int age, String name);
+
     /**
      * 根据年份查询用户
      * @param year

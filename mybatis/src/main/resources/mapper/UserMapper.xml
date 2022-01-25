@@ -17,16 +17,24 @@
     </select>
 
     <select id="selectUserToMap" resultType="map">
-        select  * from user
+        select * from user
     </select>
 
     <select id="selectUserByResultMap" resultMap="userMap">
         select * from user where id = #{id}
     </select>
 
-
     <select id="selectUserByYear" resultType="user">
-        select * from #{year}_user
+        select * from ${year}_user
+    </select>
+
+
+    <select id="selectByAgeAndName" resultType="com.xxb.mybatisDemon.entity.User">
+        select * from  user where name = #{name} and age = #{age}
+    </select>
+
+    <select id="selectByAgeAndName1" resultType="com.xxb.mybatisDemon.entity.User">
+        select * from  user where name = #{name} and age = #{age}
     </select>
 
     <insert id="addUser" parameterType="user" useGeneratedKeys="true" keyProperty="id" >
