@@ -1,6 +1,6 @@
 package com.xxb.mybatisDemon.mapper;
 
-import com.xxb.mybatisDemon.config.SqlSessionFactoryConfig;
+import com.xxb.mybatisDemon.config.SqlSessionFactoryUtil;
 import com.xxb.mybatisDemon.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSession;
@@ -16,7 +16,7 @@ class UserMapperTest {
     private final SqlSession session;
 
     {
-        session = SqlSessionFactoryConfig.getSqlSession();
+        session = SqlSessionFactoryUtil.getSqlSession();
         userMapper = session.getMapper(UserMapper.class);
     }
 

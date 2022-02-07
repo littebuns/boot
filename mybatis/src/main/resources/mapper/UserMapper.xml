@@ -3,11 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xxb.mybatisDemon.mapper.UserMapper">
-    
+
     <resultMap id="userMap" type="user">
         <result property="userPhone" column="user_phone"/>
     </resultMap>
-    
+
     <sql id="Base_Column_List">
         ${alias}.id, ${alias}.name
     </sql>
@@ -27,7 +27,6 @@
     <select id="selectUserByYear" resultType="user">
         select * from ${year}_user
     </select>
-
 
     <select id="selectByAgeAndName" resultType="com.xxb.mybatisDemon.entity.User">
         select * from  user where name = #{name} and age = #{age}

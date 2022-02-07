@@ -14,7 +14,6 @@ public interface UserMapper {
      */
     User selectUser(int id);
 
-
     List<User> selectByAgeAndName(User user);
 
     List<User> selectByAgeAndName1(int age, String name);
@@ -25,13 +24,6 @@ public interface UserMapper {
      * @return
      */
     List<User> selectUserByYear(String year);
-
-    /**
-     * 通过 resultMap 映射结果集
-     * @param id
-     * @return
-     */
-    User selectUserByResultMap(int id);
 
     /**
      * 添加用户

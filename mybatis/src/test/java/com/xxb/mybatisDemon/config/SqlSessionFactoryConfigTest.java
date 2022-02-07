@@ -1,32 +1,22 @@
 package com.xxb.mybatisDemon.config;
 
-import com.xxb.mybatisDemon.entity.User;
 import com.xxb.mybatisDemon.mapper.UserMapper;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-@Slf4j
+@SpringBootTest
 class SqlSessionFactoryConfigTest {
 
-    @Test
-    void getSqlSession() {
-        SqlSession session = SqlSessionFactoryConfig.getSqlSession();
-        UserMapper mapper = session.getMapper(UserMapper.class);
-        User user = mapper.selectUser(1);
-        log.info(user.toString());
-    }
+    @Autowired
+    private SqlSession sqlSession;
 
     @Test
-    void getSqlSessionByEnvironment() {
-        SqlSession session = SqlSessionFactoryConfig.getSqlSession("prod");
-        UserMapper mapper = session.getMapper(UserMapper.class);
-        User user = mapper.selectUser(1);
-        if (null != user){
-            log.info(user.toString());
-        }
+    void sqlSession() {
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.selectUser(1);
     }
+
 }
