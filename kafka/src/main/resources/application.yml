@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    stream:
+      kafka:
+        bindings:
+          output:
+            destination: stream-demon
+            content-type: text/plain

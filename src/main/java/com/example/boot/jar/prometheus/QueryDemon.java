@@ -1,6 +1,6 @@
 package com.example.boot.jar.prometheus;
 
-import io.micrometer.core.instrument.util.IOUtils;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -34,19 +34,19 @@ public class QueryDemon {
         return url;
     }
 
-    public static String sendRequest(String url) throws Exception{
-        try(CloseableHttpClient httpclient = HttpClients.createDefault()) {
-            HttpGet httpGet = new HttpGet(url);
-            try (CloseableHttpResponse response1 = httpclient.execute(httpGet)) {
-                HttpEntity entity1 = response1.getEntity();
-                InputStream content = entity1.getContent();
-                String result = IOUtils.toString(content);
-                //关闭 httpEntity 这个流
-                EntityUtils.consume(entity1);
-                return result;
-            }
-        }
-    }
+//    public static String sendRequest(String url) throws Exception{
+//        try(CloseableHttpClient httpclient = HttpClients.createDefault()) {
+//            HttpGet httpGet = new HttpGet(url);
+//            try (CloseableHttpResponse response1 = httpclient.execute(httpGet)) {
+//                HttpEntity entity1 = response1.getEntity();
+//                InputStream content = entity1.getContent();
+//                String result = IOUtils.toString(content);
+//                //关闭 httpEntity 这个流
+//                EntityUtils.consume(entity1);
+//                return result;
+//            }
+//        }
+//    }
 
 
 
@@ -56,43 +56,43 @@ public class QueryDemon {
         HashMap<String, String> map = new HashMap<>();
         map.put("query", "openstack_nova_agent_state");
         String url = buildUrl(map);
-        String result = sendRequest(url);
-        System.out.println(result);
+//        String result = sendRequest(url);
+//        System.out.println(result);
     }
 
 
 
-    /**
-     * 测试 httpClient
-     */
-    @Test
-    public void test() throws Exception{
-        try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
-            HttpGet httpGet = new HttpGet("http://httpbin.org/get");
-            try (CloseableHttpResponse response1 = httpclient.execute(httpGet)) {
-//                System.out.println(response1.getCode() + " " + response1.getReasonPhrase());
-                HttpEntity entity1 = response1.getEntity();
-                InputStream content = entity1.getContent();
-                String s = IOUtils.toString(content);
-                System.out.println("================" + s);
-                //关闭 httpEntity 这个流
-                EntityUtils.consume(entity1);
-                System.out.println("===========" + entity1);
-            }
-
-            HttpPost httpPost = new HttpPost("http://httpbin.org/post");
-            List<NameValuePair> nvps = new ArrayList<>();
-            nvps.add(new BasicNameValuePair("username", "vip"));
-            nvps.add(new BasicNameValuePair("password", "secret"));
-            httpPost.setEntity(new UrlEncodedFormEntity(nvps));
-
-            try (CloseableHttpResponse response2 = httpclient.execute(httpPost)) {
-                HttpEntity entity2 = response2.getEntity();
-                EntityUtils.consume(entity2);
-            }
-        }
+//    /**
+//     * 测试 httpClient
+//     */
+//    @Test
+//    public void test() throws Exception{
+//        try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
+//            HttpGet httpGet = new HttpGet("http://httpbin.org/get");
+//            try (CloseableHttpResponse response1 = httpclient.execute(httpGet)) {
+////                System.out.println(response1.getCode() + " " + response1.getReasonPhrase());
+//                HttpEntity entity1 = response1.getEntity();
+//                InputStream content = entity1.getContent();
+//                String s = IOUtils.toString(content);
+//                System.out.println("================" + s);
+//                //关闭 httpEntity 这个流
+//                EntityUtils.consume(entity1);
+//                System.out.println("===========" + entity1);
+//            }
+//
+//            HttpPost httpPost = new HttpPost("http://httpbin.org/post");
+//            List<NameValuePair> nvps = new ArrayList<>();
+//            nvps.add(new BasicNameValuePair("username", "vip"));
+//            nvps.add(new BasicNameValuePair("password", "secret"));
+//            httpPost.setEntity(new UrlEncodedFormEntity(nvps));
+//
+//            try (CloseableHttpResponse response2 = httpclient.execute(httpPost)) {
+//                HttpEntity entity2 = response2.getEntity();
+//                EntityUtils.consume(entity2);
+//            }
+//        }
     }
 
 
 
-}
+
