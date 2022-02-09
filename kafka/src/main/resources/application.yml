@@ -1,8 +1,41 @@
+server:
+  port: 8087
+
 spring:
+  kafka:
+    bootstrap-servers: 81.68.241.238:9092
   cloud:
     stream:
       kafka:
-        bindings:
-          output:
-            destination: stream-demon
-            content-type: text/plain
+        binder:
+          auto-create-topics: true
+          brokers: 81.68.241.238:9092
+      bindings:
+        output:
+          destination: default.messages
+          content-type: text/plain
+#          binder: local_kafka
+        input:
+          destination: default.messages
+        msg_output:
+          destination: process.message
+          content-type: text/plain
+        msg_input:
+          destination: process.message
+        json_msg_input:
+          destination: json.message
+        json_msg_output:
+          destination: json.message
+
+
+
+#            binder: local_kafka
+#          log_input:
+#            destionation: slave.messages
+#            binder: local_kafka
+#          log_output:
+#            destionation: slave.messages
+#            binder: local_kafka
+#      binders:
+#        local_kafka:
+#          type: kafka
